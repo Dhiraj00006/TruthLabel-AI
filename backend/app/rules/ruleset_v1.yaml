@@ -1,0 +1,44 @@
+version: 1
+
+fields:
+  - field: commodity_name
+    clause_ref: "LMPC 2011, Rule 6(1)(a)"
+    required: true
+
+  - field: mfr_address
+    clause_ref: "LMPC 2011, Rule 6(1)(b)"
+    required: true
+
+  - field: net_quantity
+    clause_ref: "LMPC 2011, Rule 6(1)(c), Second Schedule"
+    required: true
+    unit_whitelist: [g, kg, ml, l, N, cm, m]
+
+  - field: mfg_date
+    clause_ref: "LMPC 2011, Rule 6(1)(d)"
+    required: true
+    format_regex: "\\b(0[1-9]|1[0-2])[\\/\\-\\s](19|20)\\d{2}\\b"
+
+  - field: mrp
+    clause_ref: "LMPC 2011, Rule 6(1)(f)"
+    required: true
+    format_regex: "MRP.*(Rs\\.?|₹)\\s?\\d+(\\.\\d{2})?.*incl.*tax"
+    format_error: "MRP must be stated inclusive of all taxes"
+
+  - field: consumer_care
+    clause_ref: "LMPC 2011, Rule 6(1)(e)"
+    required: true
+
+  - field: country_of_origin
+    clause_ref: "LMPC 2011, Rule 6(1)(g)"
+    required: false
+
+  - field: unit_sale_price
+    clause_ref: "LMPC 2011, Rule 6(1)(h)"
+    required: false
+
+font_rules:
+  min_font_mm_by_net_qty:
+    "<=200_g_ml": 1.0
+    "200-500_g_ml": 1.5
+    ">500_g_ml": 2.0

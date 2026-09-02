@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>TruthLabel AI — Compliance Report</title></head>
+<body>
+  <h1>{{ scan.product_name }}</h1>
+  <p>Manufacturer: {{ scan.manufacturer_name }} | Category: {{ scan.category }}</p>
+
+  <h2>Findings</h2>
+  <table border="1" cellpadding="4">
+    <tr><th>Field</th><th>Verdict</th><th>Clause</th><th>Detail</th></tr>
+    {% for finding in findings %}
+    <tr>
+      <td>{{ finding.declaration.field_name if finding.declaration else "-" }}</td>
+      <td>{{ finding.verdict }}</td>
+      <td>{{ finding.rule_clause_ref }}</td>
+      <td>{{ finding.detail_message }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <h2>Advisory (non-binding)</h2>
+  <ul>
+    {% for advisory in advisories %}
+    <li>{{ advisory.detail_message }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

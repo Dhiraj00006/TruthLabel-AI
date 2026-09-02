@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+pydantic
+pydantic-settings
+alembic
+python-multipart
+python-jose[cryptography]
+passlib[bcrypt]
+opencv-python-headless
+paddleocr
+pyyaml
+jinja2
+weasyprint
+pytest
+httpx
