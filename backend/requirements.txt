@@ -8,6 +8,8 @@ alembic
 python-multipart
 python-jose[cryptography]
 passlib[bcrypt]
+bcrypt==4.0.1  # passlib's bcrypt backend breaks on bcrypt>=4.1 (missing __about__)
+email-validator
 opencv-python-headless
 paddleocr
 pyyaml

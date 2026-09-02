@@ -10,8 +10,8 @@
     <tr><th>Field</th><th>Verdict</th><th>Clause</th><th>Detail</th></tr>
     {% for finding in findings %}
     <tr>
-      <td>{{ finding.declaration.field_name if finding.declaration else "-" }}</td>
-      <td>{{ finding.verdict }}</td>
+      <td>{{ finding.field_name or "-" }}</td>
+      <td>{{ finding.verdict.value }}</td>
       <td>{{ finding.rule_clause_ref }}</td>
       <td>{{ finding.detail_message }}</td>
     </tr>

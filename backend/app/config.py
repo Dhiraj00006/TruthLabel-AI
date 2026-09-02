@@ -2,7 +2,7 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    database_url: str = "postgresql://postgres:postgres@localhost:5432/truthlabel"
+    database_url: str = "sqlite:///./truthlabel.db"
     jwt_secret: str = "change-me"
     jwt_algorithm: str = "HS256"
     ocr_engine: str = "paddleocr"
